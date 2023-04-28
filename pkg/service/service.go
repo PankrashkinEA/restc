@@ -5,7 +5,27 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"rest/pkg/repository"
 )
+
+type Authorization interface {
+}
+
+type TodoList interface {
+}
+
+type TodoItem interface {
+}
+
+type Service struct {
+	Authorization
+	TodoList
+	TodoItem
+}
+
+func NewService(rep *repository.Repository) *Service {
+	return &Service{}
+}
 
 func DownloadFile(fpath string, url string) error {
 
